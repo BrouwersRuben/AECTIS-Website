@@ -1,0 +1,634 @@
+---
+// ---------------------------------------------------------------
+// Company details: edit here, the page updates everywhere.
+// ---------------------------------------------------------------
+const company = {
+  name: 'AECTIS',
+  email: 'info@aectis.be',
+  street: 'Kiefhoekstraat 121',
+  city: '3941 Hechtel-Eksel',
+  town: 'Hechtel-Eksel',
+  country: { en: 'Belgium', nl: 'België' },
+  vat: 'BE 1027.980.561',
+  rpr: { en: 'RPR Antwerp, Hasselt division', nl: 'RPR Antwerpen, afdeling Hasselt' },
+  // Optional: for a sole proprietorship (eenmanszaak) the owner's name is
+  // normally shown too. Fill it in to display it, leave empty to hide it.
+  owner: '',
+};
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AECTIS</title>
+    <meta
+      name="description"
+      content="AECTIS: our website is under construction. / Onze website is in opbouw."
+    />
+    <meta name="theme-color" content="#05070d" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Set the language before first paint to avoid a flash of the wrong one -->
+    <script is:inline>
+      (function () {
+        var lang = 'en';
+        try {
+          var saved = localStorage.getItem('aectis-lang');
+          if (saved === 'nl' || saved === 'en') {
+            lang = saved;
+          } else if ((navigator.language || '').toLowerCase().indexOf('nl') === 0) {
+            lang = 'nl';
+          }
+        } catch (e) {
+          if ((navigator.language || '').toLowerCase().indexOf('nl') === 0) lang = 'nl';
+        }
+        document.documentElement.lang = lang;
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="bg" aria-hidden="true">
+      <span class="orb orb-purple"></span>
+      <span class="orb orb-blue"></span>
+      <span class="grid"></span>
+    </div>
+
+    <header class="top">
+      <div class="wrap top-inner">
+        <a class="brand" href="/" aria-label="AECTIS">
+          <img src="/logo-white.svg" alt="AECTIS" width="936" height="188" />
+        </a>
+        <div class="top-right">
+          <span class="pill pill-sm">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="en">Under construction</span>
+            <span class="nl">In opbouw</span>
+          </span>
+          <a class="btn btn-primary btn-sm" href={`mailto:${company.email}`}>
+            <span class="en">Contact</span>
+            <span class="nl">Contact</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <h1>
+            <span class="en">Our website is<br />under construction.</span>
+            <span class="nl">Onze website is<br />in opbouw.</span>
+          </h1>
+          <p class="lead">
+            <span class="en">Something new is on its way. In the meantime, you can reach us by email.</span>
+            <span class="nl">Er is iets nieuws onderweg. Ondertussen kan je ons bereiken via e-mail.</span>
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href={`mailto:${company.email}`}>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2.5"></rect>
+                <path d="m3.5 7 8.5 6.5L20.5 7"></path>
+              </svg>
+              <span class="en">Email us</span>
+              <span class="nl">Stuur een e-mail</span>
+            </a>
+            <a class="btn btn-ghost" href="#details">
+              <span class="en">Company details</span>
+              <span class="nl">Bedrijfsgegevens</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel" role="img" aria-label="AECTIS status">
+          <div class="panel-bar">
+            <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="panel-title">aectis — status</span>
+          </div>
+          <div class="panel-body" aria-hidden="true">
+            <p class="cmd"><span class="prompt">$</span> aectis status</p>
+            <dl>
+              <div>
+                <dt>website</dt>
+                <dd>
+                  <span class="ok">●</span>
+                  <span class="en">under construction</span>
+                  <span class="nl">in opbouw</span>
+                </dd>
+              </div>
+              <div>
+                <dt>contact</dt>
+                <dd>{company.email}</dd>
+              </div>
+              <div>
+                <dt>location</dt>
+                <dd>{company.town}, <span class="en">{company.country.en}</span><span class="nl">{company.country.nl}</span></dd>
+              </div>
+            </dl>
+            <p class="cmd"><span class="prompt">$</span> <span class="caret"></span></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="details" class="details wrap">
+        <h2>
+          <span class="en">Company details</span>
+          <span class="nl">Bedrijfsgegevens</span>
+        </h2>
+
+        <div class="cards">
+          <article class="card">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="m3.5 7 8.5 6.5L20.5 7"></path></svg>
+            </span>
+            <h3><span class="en">Contact</span><span class="nl">Contact</span></h3>
+            <p>
+              <span class="en">Questions or a project in mind? Send us an email.</span>
+              <span class="nl">Een vraag of een project in gedachten? Stuur ons een e-mail.</span>
+            </p>
+            <a class="link" href={`mailto:${company.email}`}>{company.email} →</a>
+          </article>
+
+          <article class="card">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+            </span>
+            <h3>
+              <span class="en">Registered office</span>
+              <span class="nl">Maatschappelijke zetel</span>
+            </h3>
+            <address>
+              {company.name}<br />
+              {company.street}<br />
+              {company.city}<br />
+              <span class="en">{company.country.en}</span><span class="nl">{company.country.nl}</span>
+            </address>
+          </article>
+
+          <article class="card">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"></path><path d="M14 3v5h5"></path><path d="M9 13h6M9 17h4"></path></svg>
+            </span>
+            <h3>
+              <span class="en">Registration</span>
+              <span class="nl">Registratie</span>
+            </h3>
+            <dl class="facts">
+              <div>
+                <dt><span class="en">VAT / enterprise no.</span><span class="nl">BTW- / ondernemingsnr.</span></dt>
+                <dd>{company.vat}</dd>
+              </div>
+              <div>
+                <dt><span class="en">Legal form</span><span class="nl">Rechtsvorm</span></dt>
+                <dd><span class="en">Sole proprietorship</span><span class="nl">Eenmanszaak</span></dd>
+              </div>
+              <div>
+                <dt><span class="en">Register</span><span class="nl">Register</span></dt>
+                <dd><span class="en">{company.rpr.en}</span><span class="nl">{company.rpr.nl}</span></dd>
+              </div>
+              {company.owner && (
+                <div>
+                  <dt><span class="en">Owner</span><span class="nl">Eigenaar</span></dt>
+                  <dd>{company.owner}</dd>
+                </div>
+              )}
+            </dl>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot-inner">
+        <p class="legal">
+          <strong>{company.name}</strong>
+          <span class="sep">·</span>
+          <span class="en">sole proprietorship</span><span class="nl">eenmanszaak</span>
+          <span class="sep">·</span>
+          <span class="nw">{company.vat}</span>
+          <span class="sep">·</span>
+          <span class="en">{company.rpr.en}</span><span class="nl">{company.rpr.nl}</span>
+          <span class="sep">·</span>
+          <a href={`mailto:${company.email}`}>{company.email}</a>
+        </p>
+        <div class="foot-right">
+          <span class="copy">© {year} {company.name}</span>
+          <div class="lang" role="group" aria-label="Language / Taal">
+            <button type="button" data-set-lang="en">EN</button>
+            <button type="button" data-set-lang="nl">NL</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var buttons = document.querySelectorAll('[data-set-lang]');
+
+        function sync() {
+          buttons.forEach(function (b) {
+            var active = b.getAttribute('data-set-lang') === root.lang;
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+        }
+
+        buttons.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var lang = b.getAttribute('data-set-lang');
+            root.lang = lang;
+            try { localStorage.setItem('aectis-lang', lang); } catch (e) {}
+            sync();
+          });
+        });
+
+        sync();
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --black: #05070d;
+    --ink: #0e141f;
+    --accent: #2f6bff;
+    --accent-2: #7fb0ff;
+    --accent-deep: #1f4fd8;
+    --text: #f2f6ff;
+    --muted: #8fa0bf;
+    --line: rgba(255, 255, 255, 0.1);
+    --card: #0e141f;
+    --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  /* Language switching: both languages are in the HTML, one is shown. */
+  html[lang='en'] .nl,
+  html[lang='nl'] .en {
+    display: none !important;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--black); scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    background: var(--black);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* ---------- Background ---------- */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: radial-gradient(120% 80% at 50% -10%, #0a1226 0%, var(--black) 62%);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    will-change: transform;
+  }
+  .orb-purple {
+    width: 46vmax; height: 46vmax;
+    left: -14vmax; top: -18vmax;
+    background: radial-gradient(circle, var(--accent), transparent 65%);
+    animation: drift-a 28s ease-in-out infinite alternate;
+  }
+  .orb-blue {
+    width: 40vmax; height: 40vmax;
+    right: -14vmax; top: 18vmax;
+    background: radial-gradient(circle, var(--accent-deep), transparent 65%);
+    opacity: 0.4;
+    animation: drift-b 32s ease-in-out infinite alternate;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 25%, #000 20%, transparent 75%);
+  }
+
+  @keyframes drift-a { to { transform: translate(7vmax, 5vmax) scale(1.08); } }
+  @keyframes drift-b { to { transform: translate(-6vmax, 6vmax) scale(1.1); } }
+
+  /* ---------- Header ---------- */
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--line);
+    background: rgba(5, 7, 13, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .top-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .brand img { display: block; height: 26px; width: auto; }
+  .top-right { display: flex; align-items: center; gap: 0.9rem; }
+
+  /* ---------- Shared bits ---------- */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent-deep));
+    box-shadow: 0 0 10px var(--accent-2);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 50% { opacity: 0.35; transform: scale(0.8); } }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.45rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(120deg, var(--accent), var(--accent-deep));
+    box-shadow: 0 10px 34px -10px rgba(47, 107, 255, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 42px -10px rgba(47, 107, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--line);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+  .btn-sm { padding: 0.55rem 1.05rem; font-size: 0.88rem; border-radius: 8px; }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Hero ---------- */
+  main { position: relative; z-index: 1; flex: 1; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    padding-top: clamp(3.5rem, 9vw, 7rem);
+    padding-bottom: clamp(3.5rem, 8vw, 6rem);
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  h1 {
+    margin: 0 0 1.4rem;
+    font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(120deg, #ffffff 20%, #d6e4ff 55%, #7fb0ff 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .lead {
+    margin: 0 0 2rem;
+    max-width: 30rem;
+    font-size: clamp(1.02rem, 2vw, 1.18rem);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+  /* Terminal-style status panel */
+  .panel {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(14, 20, 31, 0.92), rgba(8, 11, 19, 0.92));
+    box-shadow: 0 30px 80px -30px rgba(47, 107, 255, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+  .panel-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .lights { display: inline-flex; gap: 6px; }
+  .lights i {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+  }
+  .panel-title { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+  .panel-body {
+    padding: 1.3rem 1.4rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .cmd { margin: 0; color: var(--text); }
+  .prompt { color: var(--accent-2); margin-right: 0.4rem; }
+  .panel dl { margin: 0.7rem 0 0.9rem; }
+  .panel dl > div { display: flex; gap: 1.2rem; }
+  .panel dt { width: 5.5rem; color: var(--muted); flex-shrink: 0; }
+  .panel dd { margin: 0; color: var(--text); }
+  .ok { color: #7fb0ff; margin-right: 0.35rem; text-shadow: 0 0 10px var(--accent-2); }
+  .caret {
+    display: inline-block;
+    width: 0.55em; height: 1.05em;
+    vertical-align: text-bottom;
+    background: var(--accent-2);
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ---------- Details ---------- */
+  .details {
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+    padding-bottom: clamp(3.5rem, 8vw, 6rem);
+    scroll-margin-top: 80px;
+  }
+  .details h2 {
+    margin: 0 0 2.2rem;
+    text-align: center;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+  }
+  .card {
+    padding: 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(127, 176, 255, 0.45);
+    background: rgba(255, 255, 255, 0.055);
+  }
+  .ico {
+    display: inline-grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    margin-bottom: 1.1rem;
+    border-radius: 10px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(47, 107, 255, 0.55), rgba(31, 79, 216, 0.55));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .card h3 { margin: 0 0 0.6rem; font-size: 1.1rem; letter-spacing: -0.01em; }
+  .card p, .card address {
+    margin: 0 0 1rem;
+    font-style: normal;
+    line-height: 1.65;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+  .link {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .link:hover { border-bottom-color: var(--accent-2); }
+
+  .facts { margin: 0; }
+  .facts > div { margin-bottom: 0.8rem; }
+  .facts dt { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .facts dd { margin: 0.15rem 0 0; color: var(--text); font-size: 0.97rem; line-height: 1.5; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--line);
+    background: rgba(5, 7, 13, 0.7);
+    font-size: 0.84rem;
+    color: var(--muted);
+  }
+  .foot-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.6rem;
+  }
+  .legal { margin: 0; line-height: 1.7; }
+  .legal strong { color: var(--text); letter-spacing: 0.08em; }
+  .sep { margin: 0 0.4rem; opacity: 0.5; }
+  .nw { white-space: nowrap; }
+  footer a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  footer a:hover { border-bottom-color: var(--accent-2); }
+  .foot-right { display: flex; align-items: center; gap: 1.2rem; }
+  .copy { font-size: 0.8rem; }
+
+  .lang {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .lang button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .lang button:hover { color: var(--text); }
+  .lang button[aria-pressed='true'] {
+    color: #fff;
+    background: linear-gradient(120deg, var(--accent), var(--accent-deep));
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .top .pill { display: none; }
+    .foot-inner { flex-direction: column; align-items: flex-start; }
+    .panel dt { width: 4.6rem; }
+    .panel-body { font-size: 0.84rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orb, .dot, .hero, .caret { animation: none; }
+    .btn, .card { transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
