@@ -1,4 +1,4 @@
-# AECTIS – under construction page
+# AECTIS – Website
 
 Static single-page site built with [Astro](https://astro.build). English and Dutch, switchable with the toggle in the footer. No cookies, no tracking, no external scripts.
 
